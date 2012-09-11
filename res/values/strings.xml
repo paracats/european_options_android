@@ -1,0 +1,157 @@
+<resources>
+
+    <string name="app_name">European Options</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_bsmain">European Options</string>
+    
+    <string name="bs_strike">Strike</string> 
+    <string name="bs_expiry">Expiry</string>
+    <string name="bs_spot">Spot</string>
+    <string name="bs_vol">Vol</string>
+    <string name="bs_rate">Rate</string>
+    <string name="bs_dividend">Dividend</string>
+    <string name="bs_price">Price</string>
+    <string name="bs_call">Call</string>
+    
+    <string name="option_chooser_string">Choose option: </string>
+    
+    <string-array name="parameter_array">
+        <item>SPOT</item>
+        <item>STRIKE</item>
+        <item>RATE</item>
+        <item>DIVIDEND</item>
+        <item>VOLATILITY</item>
+        <item>EXPIRY</item>
+        <item>BARRIER</item>
+        <item>REBATE</item>
+    </string-array>
+    
+        <string-array name="parameter_array_lower">
+        <item>Spot</item>
+        <item>Strike</item>
+        <item>Rate</item>
+        <item>Dividend</item>
+        <item>Volatility</item>
+        <item>Expiry</item>
+        <item>Barrier</item>
+        <item>Rebate</item>
+    </string-array>
+    
+        <string-array name="greek_array">
+        <item>Delta</item>
+        <item>Gamma</item>
+        <item>Speed</item>
+        <item>Theta</item>
+        <item>Vega</item>
+        <item>Rho</item>
+    </string-array>
+    
+        <string-array name="greek_array_upper">
+        <item>DELTA</item>
+        <item>GAMMA</item>
+        <item>SPEED</item>
+        <item>THETA</item>
+        <item>VEGA</item>
+        <item>RHO</item>
+    </string-array>
+
+    <string-array name="option_array">
+        <item>CALL</item>
+        <item>PUT</item>
+        <item>DIGITAL CALL</item>
+        <item>DIGITAL PUT</item>
+        <item>UP-IN CALL</item>
+        <item>DOWN-IN CALL</item>
+        <item>UP-IN PUT</item>
+        <item>DOWN-IN PUT</item>
+        <item>UP-OUT CALL</item>
+        <item>DOWN-OUT CALL</item>
+        <item>UP-OUT PUT</item>
+        <item>DOWN-OUT PUT</item>
+    </string-array>
+    
+          <string name="vanilla_description">
+        A vanilla option is an agreement that gives an investor the right  to buy (Call) or sell (Put) a stock at a specified price (Strike) at a specified time (Expiry).\n
+        			<b>Parameters</b>\n
+        			<ul><li><b>SPOT - Spot:</b> the current price of the underlying</li>\n
+        			    <li><b>STR - Strike:</b> the strike price of the option</li>\n
+        			    <li><b>RATE - Interest Rate:</b> the riskless interest rate</li>\n
+        			    <li><b>DIV - Dividend Rate:</b> the dividend rate</li>\n
+        			    <li><b>VOL - Volatility:</b> the volatility</li>\n
+        			    <li><b>EXP - Expiry:</b> the time to expiration (expressed in years)</li>\n
+        			</ul>
+        			              <b>Greeks</b>\n
+              <ul>
+                  <li><b>Delta:</b> sensitivity to the underlying</li>\n
+                  <li><b>Gamma:</b> sensitivity of delta to the underlying</li>\n
+                  <li><b>Theta:</b> sensitivity to time</li>\n
+                  <li><b>Speed:</b> sensitivity of gamma to the underlying</li>\n
+                  <li><b>Vega:</b> sensitivity to volatility</li>\n
+                  <li><b>Rho:</b> sensitivity to the riskless interest rate</li>\n
+              </ul>
+
+    </string>      
+    
+                    <string name="digital_description">
+        A digital (binary) call (put) pays 1 if at expiry the asset price is greater (less) than the strike. \n
+        			<b>Parameters</b>\n
+        			<ul><li><b>SPOT - Spot:</b> the current price of the underlying</li>\n
+        			    <li><b>STR - Strike:</b> the strike price of the option</li>\n
+        			    <li><b>RATE - Interest Rate:</b> the riskless interest rate</li>\n
+        			    <li><b>DIV - Dividend Rate:</b> the dividend rate</li>\n
+        			    <li><b>VOL - Volatility:</b> the volatility</li>\n
+        			    <li><b>EXP - Expiry:</b> the time to expiration (expressed in years)</li>\n
+        			</ul>
+        			              <b>Greeks</b>\n
+              <ul>
+                  <li><b>Delta:</b> sensitivity to the underlying</li>\n
+                  <li><b>Gamma:</b> sensitivity of delta to the underlying</li>\n
+                  <li><b>Theta:</b> sensitivity to time</li>\n
+                  <li><b>Speed:</b> sensitivity of gamma to the underlying</li>\n
+                  <li><b>Vega:</b> sensitivity to volatility</li>\n
+                  <li><b>Rho:</b> sensitivity to the riskless interest rate</li>\n
+              </ul>
+
+    </string>  
+    
+                    
+                    <string name="barrier_description">
+        Barrier option are path-dependent options. Out options pay off if a barrier is not reached. In options pay off if a barrier is reached.
+        If the barrier is above (below) the initial asset value, we have a up (down) option. The pay-offs are call or put.
+        Sometimes a Rebate is paid if the barrier level is reached.\n
+        			<b>Parameters</b>\n
+        			<ul><li><b>SPOT - Spot:</b> the current price of the underlying</li>\n
+        			    <li><b>STR - Strike:</b> the strike price of the option</li>\n
+        			    <li><b>RATE - Interest Rate:</b> the riskless interest rate</li>\n
+        			    <li><b>DIV - Dividend Rate:</b> the dividend rate</li>\n
+        			    <li><b>VOL - Volatility:</b> the volatility</li>\n
+        			    <li><b>EXP - Expiry:</b> the time to expiration (expressed in years)</li>\n
+        			    <li><b>BAR - Barrier:</b> the barrier level</li>\n
+        			    <li><b>REB - Rebate:</b> if the barrier level is reached, it pays a Rebate price</li>\n
+        			</ul>
+        			              <b>Greeks</b>\n
+              <ul>
+                  <li><b>Delta:</b> sensitivity to the underlying</li>\n
+                  <li><b>Gamma:</b> sensitivity of delta to the underlying</li>\n
+                  <li><b>Theta:</b> sensitivity to time</li>\n
+                  <li><b>Speed:</b> sensitivity of gamma to the underlying</li>\n
+                  <li><b>Vega:</b> sensitivity to volatility</li>\n
+                  <li><b>Rho:</b> sensitivity to the riskless interest rate</li>\n
+              </ul>
+
+    </string>                      
+          
+          <string name="greeks_description">
+              <b>Greeks</b>\n
+              <ul>
+                  <li><b>Delta:</b> sensitivity to the underlying</li>\n
+                  <li><b>Gamma:</b> sensitivity of delta to the underlying</li>\n
+                  <li><b>Theta:</b> sensitivity to time</li>\n
+                  <li><b>Speed:</b> sensitivity of gamma to the underlying</li>\n
+                  <li><b>Vega:</b> sensitivity to volatility</li>\n
+                  <li><b>Rho:</b> sensitivity to the riskless interest rate</li>\n
+              </ul>
+             </string> 
+    
+</resources>
