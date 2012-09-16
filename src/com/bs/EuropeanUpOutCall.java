@@ -62,20 +62,38 @@ public class EuropeanUpOutCall extends EuropeanBarrierOption implements
 
 	@Override
 	public double getSpeed() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(Strike>Barrier){
+			return DerF(3,EuropeanBarrierParams.SPOT,-1);
+			}else{
+			return DerA(3,EuropeanBarrierParams.SPOT,1)
+					-DerB(3,EuropeanBarrierParams.SPOT,1)
+					+DerC(3,EuropeanBarrierParams.SPOT,1,-1)
+					-DerD(3,EuropeanBarrierParams.SPOT,1,-1)
+					+DerF(3,EuropeanBarrierParams.SPOT,-1);}
 	}
 
 	@Override
 	public double getVega() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(Strike>Barrier){
+			return DerF(1,EuropeanBarrierParams.VOLATILITY,-1);
+			}else{
+			return DerA(1,EuropeanBarrierParams.VOLATILITY,1)
+					-DerB(1,EuropeanBarrierParams.VOLATILITY,1)
+					+DerC(1,EuropeanBarrierParams.VOLATILITY,1,-1)
+					-DerD(1,EuropeanBarrierParams.VOLATILITY,1,-1)
+					+DerF(1,EuropeanBarrierParams.VOLATILITY,-1);}
 	}
 
 	@Override
 	public double getRho() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(Strike>Barrier){
+			return DerF(1,EuropeanBarrierParams.RATE,-1);
+			}else{
+			return DerA(1,EuropeanBarrierParams.RATE,1)
+					-DerB(1,EuropeanBarrierParams.RATE,1)
+					+DerC(1,EuropeanBarrierParams.RATE,1,-1)
+					-DerD(1,EuropeanBarrierParams.RATE,1,-1)
+					+DerF(1,EuropeanBarrierParams.RATE,-1);}
 	}
 	public static double[] UpOutDefault = {100.,110.,0.08,0.04,0.25,0.5,105.,3.};	
 

@@ -51,20 +51,29 @@ public class EuropeanDownInCall extends EuropeanBarrierOption implements
 
 	@Override
 	public double getSpeed() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(Strike>Barrier)
+			return DerC(3,EuropeanBarrierParams.SPOT,+1,+1)+DerE(3,EuropeanBarrierParams.SPOT,+1);
+		else{
+			return DerA(3,EuropeanBarrierParams.SPOT,+1)-DerB(3,EuropeanBarrierParams.SPOT,+1)
+					+DerD(3,EuropeanBarrierParams.SPOT,+1,+1)+DerE(3,EuropeanBarrierParams.SPOT,+1);}
 	}
 
 	@Override
 	public double getVega() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(Strike>Barrier)
+			return DerC(1,EuropeanBarrierParams.VOLATILITY,+1,+1)+DerE(1,EuropeanBarrierParams.VOLATILITY,+1);
+		else{
+			return DerA(1,EuropeanBarrierParams.VOLATILITY,+1)-DerB(1,EuropeanBarrierParams.VOLATILITY,+1)
+					+DerD(1,EuropeanBarrierParams.VOLATILITY,+1,+1)+DerE(1,EuropeanBarrierParams.VOLATILITY,+1);}
 	}
 
 	@Override
 	public double getRho() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(Strike>Barrier)
+			return DerC(1,EuropeanBarrierParams.RATE,+1,+1)+DerE(1,EuropeanBarrierParams.RATE,+1);
+		else{
+			return DerA(1,EuropeanBarrierParams.RATE,+1)-DerB(1,EuropeanBarrierParams.RATE,+1)
+					+DerD(1,EuropeanBarrierParams.RATE,+1,+1)+DerE(1,EuropeanBarrierParams.RATE,+1);}
 	}
 
 public static double[] DownInDefault = {105.,110.,0.08,0.04,0.25,0.5,100.,3.};		

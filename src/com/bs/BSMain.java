@@ -15,6 +15,7 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.text.Html;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
@@ -61,7 +62,7 @@ public class BSMain extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bsmain);      
 
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+       setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         
         init();
      
@@ -80,6 +81,42 @@ public class BSMain extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_bsmain, menu);
         return true;
+    }
+    
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+ 
+        switch (item.getItemId()){
+        
+        case R.id.menu_about:
+        	
+        	AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+        	alertDialogBuilder.setTitle("European Options by Stefano Goria");
+        	String full_message = "European Options is an handy app to compute price and greeks of" +
+        			" Vanilla, Digital and Barrier european-style options (for definitions we refer " +
+        			"to the standard book \"Hull - Options, futures and other derivatives\")." +
+        			" It is planned to add more exotic options. Price and greeks are computed via analytical formulas." +
+        			"\n \nPlease report bugs or suggestions to stefano@gorianet.it\n" +
+        			"Thanks to Daniele Musso for the artwork used for the icon.";
+        	alertDialogBuilder.setMessage(full_message);
+        	
+    		alertDialogBuilder.setPositiveButton("Ok",new DialogInterface.OnClickListener() {
+    			public void onClick(DialogInterface dialog,int id) {
+
+    			}
+    		  });
+    		
+    		// create alert dialog
+    		AlertDialog alertDialog = alertDialogBuilder.create();
+    		// show it
+    		alertDialog.show();
+        	
+        	return true;
+        
+        default:
+        	return super.onOptionsItemSelected(item);
+        }
+        
     }
  
 
@@ -360,10 +397,6 @@ public class BSMain extends Activity {
  
 			@Override
 			public void onClick(View arg0) {
-	
-				InputMethodManager inputManager = (InputMethodManager) context.getSystemService(INPUT_METHOD_SERVICE);
-				inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
-
 				//get parameters
 				Map<String,Double> values_map = new HashMap<String,Double>();
 				values_map = parameter.getValues();
@@ -551,8 +584,10 @@ public class BSMain extends Activity {
 				     double[] res = {truncate(price,6),truncate(delta,6),truncate(gamma,6),
 				    		 truncate(speed,6),truncate(theta,6),truncate(vega,6),truncate(rho,6)};
 				     result.setResults(res);
-				   //finally change focus				
-					result_layout.requestFocus();	
+				   //finally hide soft keys and change focus			 	
+					InputMethodManager inputManager = (InputMethodManager) context.getSystemService(INPUT_METHOD_SERVICE);
+					 inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+					//result_layout.requestFocus();	
 				}else{Toast.makeText(getApplicationContext(), "Unrecognized option type...", Toast.LENGTH_LONG).show();}
 
 					

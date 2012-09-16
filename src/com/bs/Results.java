@@ -104,6 +104,7 @@ public class Results {
 		txt.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
     	   	
 		txt.setPadding(1, 2, 1, 2);
+		txt.setSingleLine();
 		
     	lay.addView(txt);
     	
